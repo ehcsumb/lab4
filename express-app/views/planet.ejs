@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
 <%- include('partials/head.ejs') %>
-<body>
-    <h1>The Solar System</h1>
-     <%- include('partials/nav.ejs') %>
-    <h2>Planet <%= planetName %></h2>
-    <div>
-        <img src="<%= planetInfo.image %>">
-        <p><%= planetInfo.description %></p>
-        <h4>More Info</h4>
-        <p><a href="<%= planetInfo.websiteLink %>">Website Link</a></p>
-    </div>
-    <%- include('partials/footer.ejs') %>
-</body>
+
+    <body>
+        <%- include('partials/nav.ejs') %>
+
+            <div class="container-lg container-fluid">
+                <div class="row g-3">
+                    <!-- data card 2 -->
+                    <div class="col-12 col-md-auto">
+                        <div class="card h-100" style="width: 24rem; max-width: 100%;">
+                            <img src="<%= planetInfo.image %>" class="card-img-top" alt="<%= planetName %>">
+                            <div class="card-body">
+                                <h5 class="card-title">Planet <%= planetName %></h5>
+
+                                <ul class="">
+                                    <li class=""><strong><%= planetInfo.distanceFromSun %></strong> from the sun.</li>
+                                    <li>One year is <strong><%= planetInfo.yearLength %></strong></li>
+                                    <li>The radius is <strong><%= planetInfo.radius %></strong></li>
+                                    <li><strong><%= planetInfo.oneEarthDay %></strong> long days</li>
+                                    <li>There are <strong><%= planetInfo.moons %> moons</strong></li>
+                                </ul>
+                                <a class="btn btn-secondary" href="<%= planetInfo.websiteLink %>">Visit website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- data card 1 -->
+                    <div class="col-12 col-md">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Description</h5>
+                                <p class="card-text"><%= planetInfo.description %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <%- include('partials/footer.ejs') %>
+    </body>
+
 </html>

@@ -1,0 +1,81 @@
+/* footer */
+
+footer {
+    color:white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    background-color: #21446e;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top:2rem;
+}
+
+footer div.logo {
+    background-image: url('../img/csumb_Logo_Typemark-Reversed-single-color -600px.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15rem;
+    height: 5rem;
+    min-width: 5rem;
+    margin: 1rem;
+}
+
+/* text column */
+footer .footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .copyright {
+    opacity: 0.8;
+}
+
+footer .course {
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+/* API credit links */
+footer .footer-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-links li + li::before {
+    content: "|";
+    margin: 0 0.5rem;
+    opacity: 0.6;
+}
+
+footer a {
+    color: #8ec5ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* stack logo and text on small screens */
+@media (max-width: 576px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .footer-links {
+        justify-content: center;
+    }
+}
