@@ -1,0 +1,29 @@
+import express from 'express';
+const planets = (await import('npm-solarsystem')).default;
+const app = express();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/earth', (req, res) => {
+    let planet = planets.getEarth();
+    console.log(planet);
+    res.render('earth', {
+        planet
+    });
+})
+
+app.get('/mars', (req, res) => {
+    let planet = planets.getMars();
+    console.log(planet);
+    res.render('mars', {
+        planet
+    });
+})
+
+app.listen(3000, () => {
+    console.log('server started');
+});

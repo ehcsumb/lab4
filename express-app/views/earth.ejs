@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+<body>
+    <h1>The Solar System</h1>
+     <%- include('partials/nav.ejs') %>
+    <h2>Planet Earth</h2>
+    <div>
+        <img src="<%= planet.image %>">
+        <p><%= planet.description %></p>
+        <h4>More Info</h4>
+        <p><a href="<%= planet.websiteLink %>">Website Link</a></p>
+    </div>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>
