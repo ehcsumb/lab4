@@ -5,37 +5,29 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
     let apiKey = "7756a1e81f817c186cf57294e1c19b37b49c54b8f34e7c499ee0ce5cd86cd16e";
-	let url = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&featured=true&query=solar-system`;
+    let url = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&featured=true&query=solar-system`;
     let response = await fetch(url);
     let data = await response.json();
     let randomImage = data.urls.full;
-    res.render("index",{randomImage})
+    res.render("index", { randomImage })
 });
 
 app.get('/planet', (req, res) => {
- let planetName = req.query.planetName;
- let planetInfo = planets[`get${planetName}`]();
- res.render('planet', { planetInfo, planetName });
+    let planetName = req.query.planetName;
+    let planetInfo = planets[`get${planetName}`]();
+    res.render('planet', { planetInfo, planetName });
 });
 
+app.get('/nasa', async (req, res) => {
+    let url = `https://api.nasa.gov/planetary/apod?api_key=zjrwh9NgRWJnHRnJMPqmGfhNjdP97CDDMbf8fRhN`;
+    let response = await fetch(url);
+    let podData = await response.json();
+    console.log(podData);
+    res.render('nasa', { podData });
+});
 
-app.get('/earth', (req, res) => {
-    let planet = planets.getEarth();
-    console.log(planet);
-    res.render('earth', {
-        planet
-    });
-})
-
-app.get('/mars', (req, res) => {
-    let planet = planets.getMars();
-    console.log(planet);
-    res.render('mars', {
-        planet
-    });
-})
 
 app.listen(3000, () => {
     console.log('server started');

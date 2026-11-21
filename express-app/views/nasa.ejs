@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <%- include('partials/nav.ejs') %>
+
+            <div class="container-lg container-fluid align-center">
+                <div class="row g-3">
+                    <!-- data card 2 -->
+                    <div class="col-12 col-md-auto">
+                        <div class="card h-100" style="max-width: 100%;">
+                            <img src="<%= podData.url %>" class="card-img-top" alt="<%= podData.title %>"
+                                style="max-height: 400px; object-fit: contain;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= podData.title %></h5>
+                                <p class="card-text"><%= podData.explanation %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <%- include('partials/footer.ejs') %>
+    </body>
+
+</html>
